@@ -93,7 +93,7 @@ class UsersController extends AppController
         }
         
         $accounts = ($this->Users->Accounts->find('list'));
-        $this->set(compact('user'));
+        $this->set(compact('user', 'accounts'));
         $this->set('_serialize', ['user']);
     }
 
@@ -125,9 +125,12 @@ class UsersController extends AppController
     	
     	if($this->request->is('post')){
     		$user = $this->Auth->identify();
-
+    		debug($user);
+    		debug($this->Auth->user);die;
     		if($user){
-    			$this->Auth->setUser($user);
+    			die;
+    			$this->Auth->logout();
+    			die;
     			return $this->redirect(['action' => 'index']);
     		}
     		else{

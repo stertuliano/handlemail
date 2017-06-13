@@ -37,11 +37,16 @@ class UsersTable extends Table
         $this->setTable('Users');
         $this->setDisplayField('NameUser');
         $this->setPrimaryKey('IdUser');
+        /*
+        $this->hasMany('Emails', [
+        	'foreignKey' => 'IdUser'
+        ]);
         
         $this->belongsTo('Accounts', [
         	'foreignKey' => 'IdAccount',
         	'joinType' => 'INNER'
         ]);
+        */
     }
 
     /*

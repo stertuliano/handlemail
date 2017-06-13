@@ -9,7 +9,7 @@
         <legend><?= __('Login') ?></legend>
         <?php
             echo $this->Form->control('EmailUser');
-            echo $this->Form->control('password');
+            echo $this->Form->control('Password');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

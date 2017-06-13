@@ -51,7 +51,7 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-
+        
         // Inicia sessao caso nao esteja inicializada
         if(!$this->request->session()->started()){
         	$this->request->session()->start();
@@ -72,8 +72,7 @@ class AppController extends Controller
         		],
         		'authenticate' => [
         				'Form' => [
-        						'userModel' => 'Users',
-        						'fields' => ['username' => 'EmailUser', 'password' => 'password']
+        						'fields' => ['username' => 'EmailUser', 'password' => 'Password']
         				]
         		],
         		'autoRedirect' => false
@@ -82,7 +81,7 @@ class AppController extends Controller
         // Thema do adminLTE
         $this->viewBuilder()->setTheme('AdminLTE');
         $this->viewBuilder()->setLayout('defaultlte');
-
+        
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html

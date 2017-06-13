@@ -22,7 +22,7 @@
 			</div>
 			
 			<div class="col-xs-12 col-md-6">
-				<div class="col-xs-12"> 
+				<div class="col-xs-12">
 <?php 
 					echo $this->Form->control('IdAccount', ['empty' => ' ', 'options' => $accounts]);
 					echo $this->Form->control('Admin');
