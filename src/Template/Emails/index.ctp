@@ -1,7 +1,7 @@
 <?php
 /**
- * @var \App\View\AppView $this
- */
+  * @var \App\View\AppView $this
+  */ 
 ?>
 
 <!-- Bootstrap DataTable -->
@@ -21,27 +21,21 @@
 			<table id="data-table" class="table table-striped table-bordered">
 		        <thead>
 		            <tr>
-		                <th>Nome</th>
-		                <th>Email</th>
-		                <th>Telefone</th>
-		                <th>Conta</th>
-		                <th>Admin</th>
-		                <th></th>
+		                <th scope="col">Email</th>
+		                <th scope="col">DtRegister</th>
+		                <th scope="col">EmailFrom</th>
+		                <th scope="col">IdUser</th>
 		            </tr>
 		        </thead>
 		        <tbody>
-		            <?php foreach ($emails as $email){ ?>
-			            <tr>
-			            	<td><?= h($email->NameUser) ?></td>
-			                <td><?= h($email->EmailUser) ?></td>
-			                <td><?= h($email->PhoneNumber) ?></td>
-			                <td><?= h($email->idAccount) ?></td>
-			                <td><?= h($email->Admin) ?></td>
-			                <td> 
-			                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $email->IdEmail]) ?>
-			                </td>
-			            </tr>
-		            <?php } ?>
+		            <?php foreach ($emails as $email): ?>
+		            <tr>
+		                <td><?= h($email->Email) ?></td>
+		                <td><?= h($email->DtRegister) ?></td>
+		                <td><?= h($email->EmailFrom) ?></td>
+		                <td><?= $email->user->NameUser ?></td>
+		            </tr>
+		            <?php endforeach; ?>
 		        </tbody>
 		    </table>
 		    

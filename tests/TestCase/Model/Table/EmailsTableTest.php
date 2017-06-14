@@ -24,7 +24,9 @@ class EmailsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.emails'
+        'app.emails',
+        'app.users',
+        'app.accounts'
     ];
 
     /**
@@ -35,7 +37,7 @@ class EmailsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Emails') ? [] : ['className' => EmailsTable::class];
+        $config = TableRegistry::exists('Emails') ? [] : ['className' => 'App\Model\Table\EmailsTable'];
         $this->Emails = TableRegistry::get('Emails', $config);
     }
 

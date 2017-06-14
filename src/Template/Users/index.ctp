@@ -1,7 +1,7 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  */
+  */ 
 ?>
 
 <!-- Bootstrap DataTable -->
@@ -35,8 +35,8 @@
 			            	<td><?= h($user->NameUser) ?></td>
 			                <td><?= h($user->EmailUser) ?></td>
 			                <td><?= h($user->PhoneNumber) ?></td>
-			                <td><?= h($user->idAccount) ?></td>
-			                <td><?= h($user->Admin) ?></td>
+			                <td><?= ($user->account->NameAccount) ?></td>
+			                <td><? if($user->Admin==1){echo'Admin';} ?></td>
 			                <td> 
 			                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $user->IdUser]) ?>
 			                </td>

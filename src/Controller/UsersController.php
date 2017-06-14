@@ -14,6 +14,8 @@ class UsersController extends AppController
 
 	public function beforeFilter(Event $event){
 		$this->Auth->allow(['login', 'add']);
+		
+
 	}
 
     /**
@@ -24,10 +26,11 @@ class UsersController extends AppController
     public function index()
     {
         $this->paginate = [];
-        $users = $this->paginate($this->Users);
-
+        $users = $this->Users->find()->contain('Accounts');
+        
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
+        
     }
 
     /**
@@ -125,13 +128,10 @@ class UsersController extends AppController
     	
     	if($this->request->is('post')){
     		$user = $this->Auth->identify();
-    		debug($user);
-    		debug($this->Auth->user);die;
+
     		if($user){
-    			die;
-    			$this->Auth->logout();
-    			die;
-    			return $this->redirect(['action' => 'index']);
+    			$this->Auth->setUser($user);
+    			return $this->redirect(['controller' => 'Users', 'action' => 'index']);
     		}
     		else{
     			$this->Flash->error('Usuário e Senha inválidos');

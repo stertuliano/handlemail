@@ -35,8 +35,8 @@ class EmailsTable extends Table
         $this->setPrimaryKey('IdEmail');
         
         $this->belongsTo('Users', [
-        	'foreignKey' => 'IdAccount',
-       		'joinType' => 'INNER'
+        		'foreignKey' => 'IdUser',
+        		'joinType' => 'INNER'
         ]);
     }
 

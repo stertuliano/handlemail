@@ -27,7 +27,7 @@ class EmailsFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['IdEmail'], 'length' => []],
-            'TB_Email_ibfk_1' => ['type' => 'foreign', 'columns' => ['IdUser'], 'references' => ['users', 'IdUser'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
+            'TB_Email_ibfk_1' => ['type' => 'foreign', 'columns' => ['IdUser'], 'references' => ['TB_User', 'IdUser'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -45,7 +45,7 @@ class EmailsFixture extends TestFixture
         [
             'IdEmail' => 1,
             'Email' => 'Lorem ipsum dolor sit amet',
-            'DtRegister' => '2017-06-12',
+            'DtRegister' => '2017-06-14',
             'EmailFrom' => 'Lorem ipsum dolor sit amet',
             'IdUser' => 1
         ],

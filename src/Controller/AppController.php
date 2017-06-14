@@ -80,6 +80,7 @@ class AppController extends Controller
         
         // Thema do adminLTE
         $this->viewBuilder()->setTheme('AdminLTE');
+        // Layout
         $this->viewBuilder()->setLayout('defaultlte');
         
         /*

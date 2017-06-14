@@ -34,10 +34,10 @@ class UsersTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('Users');
+        $this->setTable('users');
         $this->setDisplayField('NameUser');
         $this->setPrimaryKey('IdUser');
-        /*
+        
         $this->hasMany('Emails', [
         	'foreignKey' => 'IdUser'
         ]);
@@ -46,7 +46,6 @@ class UsersTable extends Table
         	'foreignKey' => 'IdAccount',
         	'joinType' => 'INNER'
         ]);
-        */
     }
 
     /*

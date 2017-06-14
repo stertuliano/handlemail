@@ -11,6 +11,7 @@
 <?php 
 					echo $this->Form->input('NameUser');
 					echo $this->Form->input('EmailUser');
+					echo $this->Form->input('PhoneNumber');
 ?>
 				</div>
 				<div class="col-xs-6">

@@ -11,6 +11,8 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenDate $DtRegister
  * @property string $EmailFrom
  * @property int $IdUser
+ *
+ * @property \App\Model\Entity\User $user
  */
 class Email extends Entity
 {

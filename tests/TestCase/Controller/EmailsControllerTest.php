@@ -16,7 +16,9 @@ class EmailsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.emails'
+        'app.emails',
+        'app.users',
+        'app.accounts'
     ];
 
     /**
