@@ -42,6 +42,10 @@ class UsersTable extends Table
         	'foreignKey' => 'IdUser'
         ]);
         
+        $this->hasMany('ForgotPassword', [
+        	'foreignKey' => 'IdUser'
+        ]);
+        
         $this->belongsTo('Accounts', [
         	'foreignKey' => 'IdAccount',
         	'joinType' => 'INNER'
@@ -52,11 +56,11 @@ class UsersTable extends Table
      * Antes de salvar as alteracoes
      */
     public function beforeSave(Event $event, Entity $entity){
-    	if($entity->password == ''){
-    		unset($entity->password);
+    	if($entity->Password == ''){
+    		unset($entity->Password);
     	}
     	else{
-    		$entity->password = (new DefaultPasswordHasher)->hash($entity->password);
+    		$entity->Password = (new DefaultPasswordHasher)->hash($entity->Password);
     	}
     }
     
@@ -99,7 +103,7 @@ class UsersTable extends Table
     	$validator
     		->add('confirm_password',
     			'compareWith', [
-    					'rule' => ['compareWith', 'password'],
+    					'rule' => ['compareWith', 'Password'],
     					'message' => 'Senha e Confirmação não conferem'
     			]
     		);

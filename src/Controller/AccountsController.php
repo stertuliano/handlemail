@@ -20,27 +20,13 @@ class AccountsController extends AppController
      */
     public function index()
     {
+    	// Verifica se usuario é admin
+    	$this->Permission->verifyAdmin();
+    	
         $accounts = $this->paginate($this->Accounts);
 
         $this->set(compact('accounts'));
         $this->set('_serialize', ['accounts']);
-    }
-
-    /**
-     * View method
-     *
-     * @param string|null $id Account id.
-     * @return \Cake\Http\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $account = $this->Accounts->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('account', $account);
-        $this->set('_serialize', ['account']);
     }
 
     /**
@@ -50,6 +36,9 @@ class AccountsController extends AppController
      */
     public function add()
     {
+    	// Verifica se usuario é admin
+    	$this->Permission->verifyAdmin();
+    	
         $account = $this->Accounts->newEntity();
         if ($this->request->is('post')) {
             $account = $this->Accounts->patchEntity($account, $this->request->getData());
@@ -73,6 +62,9 @@ class AccountsController extends AppController
      */
     public function edit($id = null)
     {
+    	// Verifica se usuario é admin
+    	$this->Permission->verifyAdmin();
+    	
         $account = $this->Accounts->get($id, [
             'contain' => []
         ]);
@@ -98,6 +90,9 @@ class AccountsController extends AppController
      */
     public function delete($id = null)
     {
+    	// Verifica se usuario é admin
+    	$this->Permission->verifyAdmin();
+    	
         $this->request->allowMethod(['post', 'delete']);
         $account = $this->Accounts->get($id);
         if ($this->Accounts->delete($account)) {

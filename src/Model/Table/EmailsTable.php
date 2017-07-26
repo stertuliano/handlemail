@@ -69,4 +69,36 @@ class EmailsTable extends Table
 
         return $validator;
     }
+    
+    /**
+     * Grafico de meses por usuario
+     */
+    public function chartByUser($idUser){
+    	$query = $this->find();
+    	$query->select([
+    				'value' => $query->func()->count('Emails.IdEmail'),
+    				'label' => ("concat( month(Emails.DtRegister), '/',year(Emails.DtRegister) ) ")
+    			])
+    			->where(
+    				['IdUser' => $idUser]
+    			)
+    			->orderAsc('DtRegister')
+    			->group('concat(month(DtRegister), year(DtRegister))');
+    	return $query;
+    }
+    
+    /**
+     * Grafico de meses por usuario
+     */
+    public function chartByDate(){
+    	$query = $this->find();
+    	$query->select([
+    			'value' => $query->func()->count('Emails.IdEmail'),
+    			'label' => ('Users.NameUser')
+    		])
+    		->contain('Users')
+    			//->orderAsc('DtRegister')
+    			->group('Emails.IdUser');
+    	return $query;
+    }
 }

@@ -24,26 +24,35 @@ class EmailsController extends AppController
             'contain' => ['Users']
         ];
         $emails = $this->Emails->find('all')->contain('Users');
+        
+        if(!$this->Auth->user('Admin')){
+        	$emails->where(['Emails.IdUser' => $this->Auth->user('IdUser')]);
+        }
 
         $this->set(compact('emails'));
         $this->set('_serialize', ['emails']);
     }
-
+    
     /**
-     * View method
-     *
-     * @param string|null $id Email id.
-     * @return \Cake\Http\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * Chart method
      */
-    public function view($id = null)
-    {
-        $email = $this->Emails->get($id, [
-            'contain' => ['Users']
-        ]);
+    public function chart(){
+    	debug($this->request->getData());
+    	
+    	if($this->Auth->user('Admin')){
+    		$data = $this->Emails->chartByDate();
+    	}
+    	else{
+    		$data = $this->Emails->chartByUser($this->Auth->user('IdUser'));
+    	}
+    	
+    	debug($data->first());die;
+    	$users = $this->Emails->Users->find('list');
+    	
+    	$this->loadModel('Accounts');
+    	$accounts = $this->Accounts->find('list');
 
-        $this->set('email', $email);
-        $this->set('_serialize', ['email']);
+    	$this->set(compact('data', 'users', 'accounts'));
     }
 
     /**
@@ -53,6 +62,9 @@ class EmailsController extends AppController
      */
     public function add()
     {
+    	// Verifica se usuario é admin
+    	$this->Permission->verifyAdmin();
+    	
         $email = $this->Emails->newEntity();
         if ($this->request->is('post')) {
             $email = $this->Emails->patchEntity($email, $this->request->getData());
@@ -63,10 +75,11 @@ class EmailsController extends AppController
             }
             $this->Flash->error(__('The email could not be saved. Please, try again.'));
         }
-        $users = $this->Emails->Users->find('list', ['limit' => 200]);
+        $users = $this->Emails->Users->find('list');
         $this->set(compact('email', 'users'));
         $this->set('_serialize', ['email']);
     }
+
 
     /**
      * Edit method
@@ -77,6 +90,9 @@ class EmailsController extends AppController
      */
     public function edit($id = null)
     {
+    	// Verifica se usuario é admin
+    	$this->Permission->verifyAdmin();
+    	
         $email = $this->Emails->get($id, [
             'contain' => []
         ]);
@@ -103,6 +119,9 @@ class EmailsController extends AppController
      */
     public function delete($id = null)
     {
+    	// Verifica se usuario é admin
+    	$this->Permission->verifyAdmin();
+    	
         $this->request->allowMethod(['post', 'delete']);
         $email = $this->Emails->get($id);
         if ($this->Emails->delete($email)) {

@@ -225,10 +225,10 @@ if (Configure::read('debug')) {
 Plugin::load('AdminLTE', ['bootstrap' => true, 'routes' => true]);
 
 Configure::write('Theme', [
-		'title' => 'AdminLTE',
+		'title' => 'HandlEmail',
 		'logo' => [
-				'mini' => '<b>P</b>i',
-				'large' => '<b>Proc</b>TI'
+				'mini' => 'H<b>E</b>',
+				'large' => 'Handl<b>E</b>mail'
 		],
 		'login' => [
 				'show_remember' => true,

@@ -14,17 +14,44 @@
 <div class="users form large-9 medium-8 columns content">
 	<div class="box box-primary">
 		<div class="box-header with-border">
-			<h3 class="box-title">Usuários</h3>
+			<h3 class="box-title">List of Invalid Emails</h3>
 		</div>
+		<div class="box-body" >
+    		<div class="col-xs-12 col-md-6">
+    			<div class="col-xs-6">
+    <?php 
+    			echo $this->Form->control('IdAccount', ['label' => 'Dt Inicial', 'empty' => ' ', 'options' => $accounts]);
+    ?>
+    			</div>
+    			
+    			<div class="col-xs-6">
+    <?php 
+    			echo $this->Form->control('IdUser', ['label' => 'Dt Final', 'empty' => ' ', 'options' => $users]);
+    ?>    			
+    			</div>
+    		</div>
+    		<div class="col-xs-12 col-md-6">						
+    			<div class="col-xs-6">
+    <?php 
+    			echo $this->Form->control('IdAccount', ['label' => 'Account', 'empty' => ' ', 'options' => $accounts]);
+    ?>
+    			</div>
+    			<div class="col-xs-6">
+    <?php 
+    			echo $this->Form->control('IdAccount', ['label' => 'User', 'empty' => ' ', 'options' => $accounts]);
+    ?>
+    			</div>
+    		</div>
+		</div>		
 		<div class="box-body">
 		
 			<table id="data-table" class="table table-striped table-bordered">
 		        <thead>
 		            <tr>
-		                <th scope="col">Email</th>
-		                <th scope="col">DtRegister</th>
-		                <th scope="col">EmailFrom</th>
-		                <th scope="col">IdUser</th>
+		                <th scope="col">Invalid Email</th>
+		                <th scope="col">Date</th>
+		                <th scope="col">Email From</th>
+		                <th scope="col">User</th>
 		            </tr>
 		        </thead>
 		        <tbody>
@@ -32,7 +59,7 @@
 		            <tr>
 		                <td><?= h($email->Email) ?></td>
 		                <td><?= h($email->DtRegister) ?></td>
-		                <td><?= h($email->EmailFrom) ?></td>
+		                <td></td>
 		                <td><?= $email->user->NameUser ?></td>
 		            </tr>
 		            <?php endforeach; ?>
@@ -45,10 +72,6 @@
 
 <script>
 $(document).ready(function() {
-    $('#data-table').DataTable({
-        "language": {
-            "url": "http://cdn.datatables.net/plug-ins/1.10.15/i18n/Portuguese-Brasil.json"
-        }
-	});
+    $('#data-table').DataTable();
 } );
 </script>

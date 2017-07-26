@@ -6,15 +6,16 @@
 
 	<div class="box box-primary">
 		<div class="box-header with-border">
-			<h3 class="box-title">Adicionar Conta</h3>
+			<h3 class="box-title">Edit Account</h3>
 		</div>
 		<div class="box-body">
 			<div class="col-xs-12 col-md-6">
 				<div class="col-xs-12"> 
 <?php 
-					echo $this->Form->control('NameAccount');
-					echo $this->Form->control('TaxId', ['id' => 'taxId']);
-					echo $this->Form->control('ZipCode', ['id' => 'cep']);
+					echo $this->Form->control('NameAccount', ['label' => 'Name']);
+					echo $this->Form->control('TaxId', ['id' => 'taxId', 'label' => 'Tax Id']);
+					echo $this->Form->control('ZipCode', ['id' => 'cep', 'label' => 'Zip Code']);					
+					echo $this->Form->control('StateRegion', ['label' => 'State Region']);
 ?>
 				</div>
 			</div>
@@ -22,16 +23,17 @@
 			<div class="col-xs-12 col-md-6">
 				<div class="col-xs-12"> 
 <?php 
-		            echo $this->Form->control('Address1');
-		            echo $this->Form->control('Address2');
-		            echo $this->Form->control('NameCity');
+		            echo $this->Form->control('Address1', ['label' => 'Address1']);
+		            echo $this->Form->control('Address2', ['label' => 'Address2']);
+		            echo $this->Form->control('NameCity', ['label' => 'City']);
+		            echo $this->Form->control('Country', ['label' => 'Country']);
 ?>
 				</div>
 			</div>
 		</div> 
 		<div class="box-footer">
-			<?= $this->Form->button(__('Cancelar'), ['class' => 'btn btn-danger']) ?>
-			<?= $this->Form->button(__('Alterar'), ['class' => 'btn btn-primary', 'type' => 'submit']) ?>
+			<?= $this->Form->button(__('Cancel'), ['class' => 'btn btn-danger']) ?>
+			<?= $this->Form->button(__('Update'), ['class' => 'btn btn-primary', 'type' => 'submit']) ?>
 		</div>
 	</div>
 </div>
