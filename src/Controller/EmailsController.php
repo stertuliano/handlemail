@@ -46,7 +46,6 @@ class EmailsController extends AppController
     		$data = $this->Emails->chartByUser($this->Auth->user('IdUser'));
     	}
     	
-    	debug($data->first());die;
     	$users = $this->Emails->Users->find('list');
     	
     	$this->loadModel('Accounts');
