@@ -1,0 +1,26 @@
+[07-Jul-2017 18:53:50 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/Mailer/Email.php on line 51
+[07-Jul-2017 18:53:50 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/View/ViewBuilder.php on line 31
+[07-Jul-2017 18:54:31 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/Mailer/Email.php on line 51
+[07-Jul-2017 18:54:31 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/View/ViewBuilder.php on line 31
+[07-Jul-2017 18:54:33 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/Mailer/Email.php on line 51
+[07-Jul-2017 18:54:33 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/View/ViewBuilder.php on line 31
+[07-Jul-2017 18:54:37 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/Mailer/Email.php on line 51
+[07-Jul-2017 18:54:37 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/View/ViewBuilder.php on line 31
+[07-Jul-2017 18:57:15 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/Mailer/Email.php on line 51
+[07-Jul-2017 18:57:15 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/View/ViewBuilder.php on line 31
+[07-Jul-2017 18:57:33 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/Mailer/Email.php on line 51
+[07-Jul-2017 18:57:33 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/View/ViewBuilder.php on line 31
+[07-Jul-2017 18:59:16 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/Mailer/Email.php on line 51
+[07-Jul-2017 18:59:16 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/View/ViewBuilder.php on line 31
+[07-Jul-2017 18:59:20 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/Mailer/Email.php on line 51
+[07-Jul-2017 18:59:20 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/View/ViewBuilder.php on line 31
+[07-Jul-2017 18:59:25 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/Mailer/Email.php on line 51
+[07-Jul-2017 18:59:25 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/View/ViewBuilder.php on line 31
+[07-Jul-2017 19:00:09 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/Mailer/Email.php on line 51
+[07-Jul-2017 19:00:09 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/View/ViewBuilder.php on line 31
+[07-Jul-2017 15:07:57 America/New_York] PHP Fatal error:  You must enable the intl extension to use CakePHP. in /home/procti/public_html/handlemail.com/config/bootstrap.php on line 25
+[07-Jul-2017 15:08:06 America/New_York] PHP Fatal error:  You must enable the intl extension to use CakePHP. in /home/procti/public_html/handlemail.com/config/bootstrap.php on line 25
+[07-Jul-2017 19:09:20 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/Mailer/Email.php on line 51
+[07-Jul-2017 19:09:20 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/View/ViewBuilder.php on line 31
+[07-Jul-2017 19:09:23 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/Mailer/Email.php on line 51
+[07-Jul-2017 19:09:23 UTC] PHP Fatal error:  Interface 'JsonSerializable' not found in /home/procti/public_html/handlemail.com/vendor/cakephp/cakephp/src/View/ViewBuilder.php on line 31
