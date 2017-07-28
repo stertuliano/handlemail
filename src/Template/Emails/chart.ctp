@@ -40,13 +40,13 @@
                 	<!-- /.input group -->
 				</div>
     			<div class="col-xs-3">
-					<?= $this->Form->control('IdAccount', ['label' => false, 'empty' => 'Account', 'options' => $accounts]);?>
+					<?= $this->Form->control('IdAccount', ['label' => false, 'empty' => 'Account', 'options' => $accounts, 'id' => 'id-account']);?>
     			</div>
     			<div class="col-xs-3">
-    				<?= $this->Form->control('IdUser', ['label' => false, 'empty' => 'User', 'options' => $users]);?>    			
+    				<?= $this->Form->control('IdUser', ['label' => false, 'empty' => 'User', 'options' => $users, 'id' => 'id-user']);?>    			
     			</div>
     			<div class="col-xs-2">
-    				<?= $this->Form->submit('Pesquisar');?>    			
+    				<?= $this->Form->control('Pesquisar', ['id' => 'btn-search', 'type' => 'button', 'label' => false] );?>    			
     			</div>
     		</div>
     		<?= $this->Form->end()?>
@@ -60,15 +60,106 @@
 
 
 <script>
-	$('#datepicker').daterangepicker({
-	    "startDate": "07/20/2017",
-	    "endDate": "07/26/2017"
-	}, function(start, end, label) {
-	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+	$(function() {		
+		/*
+	    var randomScalingFactor = function() {
+	        return Math.ceil(Math.random() * 10.0) * Math.pow(10, Math.ceil(Math.random() * 5));
+	    };
+	    
+	    var config = {
+	            type: 'line',
+	            data: {
+	                labels: ["January", "February", "March", "April", "May", "June", "July"],
+	                datasets: [{
+	                    label: "My First dataset",
+	                    //backgroundColor: window.chartColors.red,
+	                    //borderColor: window.chartColors.red,
+	                    fill: false,
+	                    data: [
+	                        randomScalingFactor(), 
+	                        randomScalingFactor(), 
+	                        randomScalingFactor(), 
+	                        randomScalingFactor(), 
+	                        randomScalingFactor(), 
+	                        randomScalingFactor(), 
+	                        randomScalingFactor()
+	                    ],
+	                }, {
+	                    label: "My Second dataset",
+	                    //backgroundColor: window.chartColors.blue,
+	                    //borderColor: window.chartColors.blue,
+	                    fill: false,
+	                    data: [
+	                        randomScalingFactor(), 
+	                        randomScalingFactor(), 
+	                        randomScalingFactor(), 
+	                        randomScalingFactor(), 
+	                        randomScalingFactor(), 
+	                        randomScalingFactor(), 
+	                        randomScalingFactor()
+	                    ],
+	                }]
+	            },
+	            options: {
+	                responsive: true,
+	                title:{
+	                    display:true,
+	                    text:'Chart.js Line Chart - Logarithmic'
+	                },
+	                scales: {
+	                    xAxes: [{
+	                        display: true,
+	                    }],
+	                    yAxes: [{
+	                        display: true,
+	                        type: 'logarithmic',
+	                    }]
+	                }
+	            }
+	        };
+
+        var ctx = document.getElementById("myChart").getContext("2d");
+        window.myLine = new Chart(ctx, config);
+		*/
+		var startDate = '';
+		var finishDate = '';
+		
+		$('#btn-search').on('click', function(){
+			console.log(startDate + ' - ', finishDate + ' - ', $('#id-account').val() + ' - ', $('#id-user').val());
+			$.ajax({
+				method: 'POST',
+				//dataType: "json",
+				url: '<?= $this->Url->build(['action' => 'getChart'])?>',
+				data: {
+						startDate: startDate,
+						finishDate: finishDate,
+						idAccount: $('#id-account').val(),
+						idUser: $('#id-user').val(),
+					}
+			})
+			.done(function(data){
+				data = JSON.parse(data);
+				
+				var labels = Object.keys(data);
+				console.log(data);
+				for(var i = 0; i<=data.length-1; i++){
+					//datasets
+				}
+				
+				
+			});
+		});
+
+		$('#datepicker').daterangepicker({
+		    format: "DD/MM/YYYY",
+		}, function(start, end, label) {
+		  //console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+		  startDate = start.format('YYYY-MM-DD');
+		  finishDate = end.format('YYYY-MM-DD');
+		});
 	});
-
-
-
+	
+/*
 	var labels = [];
 	var values = [];
 <?php 
@@ -115,4 +206,5 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+*/
 </script>

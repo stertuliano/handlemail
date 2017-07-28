@@ -37,8 +37,6 @@ class EmailsController extends AppController
      * Chart method
      */
     public function chart(){
-    	debug($this->request->getData());
-    	
     	if($this->Auth->user('Admin')){
     		$data = $this->Emails->chartByDate();
     	}
@@ -54,6 +52,27 @@ class EmailsController extends AppController
     	$this->set(compact('data', 'users', 'accounts'));
     }
 
+    /**
+     * Chart method
+     */
+    public function getChart(){
+    	$startDate = $this->request->getData('startDate');
+    	$finishDate = $this->request->getData('finishDate');
+    	$idAccount = $this->request->getData('idAccount');
+    	$idUser = $this->request->getData('idUser');
+    	//die('a');
+    	/*$startDate = '2017-06-01';
+    	$finishDate = '2017-06-30';
+    	$idAccount = '3';
+    	$idUser = '1';*/
+    	//echo $startDate . " - " . $finishDate;
+    	$data = $this->Emails->getChart($startDate, $finishDate, $idAccount, $idUser);
+    	
+    	print_r(json_encode($data));
+    	exit;
+    }
+    
+    
     /**
      * Add method
      *
