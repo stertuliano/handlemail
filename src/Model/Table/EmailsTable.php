@@ -71,26 +71,27 @@ class EmailsTable extends Table
         return $validator;
     }
     
-    public function getChart($startDate=null, $finishDate=null, $idAccount=null, $idUser=null){
+    public function getChart($startDate=null, $finishDate=null, $idAccount=0, $idUser=0){
     	$labels = [];
     	$dataset = [];
     	$values = [];
     	$queryUsersIn = [];
-    	$idUser = 1;
     	
     	if($startDate && $finishDate){
-    		$dStartDate= new DateTime($startDate);
-    		$dFinishDate= new DateTime($finishDate);
+    		$dStartDate = new DateTime($startDate);
+    		$dFinishDate = new DateTime($finishDate);
     	} else{
-    		$dStartDate= new DateTime(date('Y-m-d'));
-    		$dFinishDate= new DateTime(date('Y-m-d'));
+    		$dStartDate = new DateTime(date('Y-m-d'));
+    		$dFinishDate = new DateTime(date('Y-m-d'));
+    		$dFinishDate->modify('- 30 days');
     	}
-    	
-    	if($idUser == null)
-    		$users = $this->Users->find()->where(['IdAccount' => $idAccount]);
-    	else
+
+    	if($idUser){
     		$users = $this->Users->find()->where(['IdUser' => $idUser]);
-    	
+    	} elseif($idAccount){
+    		$users = $this->Users->find()->where(['IdAccount' => $idAccount]);
+    	}
+    		
     	foreach($users as $user){
     		$queryUsersIn[] = $user->IdUser;
     	}
@@ -110,20 +111,30 @@ class EmailsTable extends Table
     		->orderAsc('DtRegister');
     	
     	foreach($users as $u){
+    		
     		$dStartDate= new DateTime($startDate);
     		$dFinishDate= new DateTime($finishDate);
+    		$d['email'] = $u->EmailUser;
+    		$values = [];
     		for($i = $dStartDate; $i <= $dFinishDate; $i->modify('+1 day')){
-    			$dataset[$u->NameUser][$i->format("Y-m-d")] = '0';
+    			
+    			$values[$i->format("Y-m-d")] = 0;
     			foreach($emails as $email){
     				if($email->label == $i->format("jnY") && $u->IdUser == $email->IdUser){
-    					$dataset[$u->NameUser][$i->format("Y-m-d")] = $email->value;
+    					//$dataset[$u->NameUser][$i->format("Y-m-d")] = $email->value;
+    					$values[$i->format("Y-m-d")] = $email->value;
     					break;
     				}
     			}
     		}
+    		$d['values'] = [];
+    		foreach($values as $key => $value){
+    			$d['values'][] = ['0' => $key, '1' => $value];
+    		}
+    		$dataset[] = $d;
     	}
     	
-    	return $dataset;
+    	return ($dataset);
     }
     
     /**
